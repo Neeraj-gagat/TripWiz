@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { TamboProvider } from "@tambo-ai/react";
+import { components } from "@/lib/tambo";
+import { MessageThreadPanel } from "@/components/tambo/message-thread-panel";
+import { MessageThreadFull } from "@/components/tambo/message-thread-full";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +31,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <TamboProvider  apiKey={process.env.NEXT_PUBLIC_TAMBO_API_KEY ?? ""}
+        components={components}
+        >
+          <MessageThreadFull />
+          <MessageThreadPanel />
+          {children}
+        </TamboProvider>       
       </body>
     </html>
   );
