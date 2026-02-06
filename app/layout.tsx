@@ -34,9 +34,9 @@ export default function RootLayout({
         <TamboProvider  apiKey={process.env.NEXT_PUBLIC_TAMBO_API_KEY ?? ""}
         components={components}
         >
-          <MessageThreadFull />
-          <MessageThreadPanel />
           {children}
+          {/* <MessageThreadFull /> */}
+          {/* <MessageThreadPanel /> */}
         </TamboProvider>       
       </body>
     </html>
