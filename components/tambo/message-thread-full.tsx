@@ -88,7 +88,7 @@ export const MessageThreadFull = React.forwardRef<
   ];
 
   return (
-    <div className="flex h-full w-full">
+    <div className="flex h-[200px] w-[800px]">
       {/* Thread History Sidebar - rendered first if history is on the left */}
       {historyPosition === "left" && threadHistorySidebar}
 
