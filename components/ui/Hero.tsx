@@ -13,14 +13,14 @@ export const Hero = () => {
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#e91e63]"></span>
             </span>
             <span className="text-[11px] font-extrabold text-slate-500 uppercase tracking-[0.2em]">Next-Gen Travel AI</span>
-        </div>
-            <h1 className="text-5xl font-bold text-gray-950 mb-4 pb-2">Discover Your <b className="text-transparent bg-clip-text bg-gradient-to-r from-[#e91e63] via-[#ff4081] to-indigo-600">Next Adventure</b> </h1>
-            <div className="rounded-xl bg-zinc-50 backdrop-bur-2xl pt-2">
+            </div>
+            <h1 className="relative text-5xl font-bold text-[#1a2b48] mb-4 pb-2">Discover Your <b className="text-transparent bg-clip-text bg-gradient-to-r from-[#e91e63] via-[#ff4081] to-indigo-500">Next Adventure</b> </h1>
+            <div className="rounded-2xl overflow-hidden bg-zinc-50 border border-zinc-200 pt-2">
                <MessageThreadFull className="bg-zinc-50 -mt-2 rounded-xl" />
             </div>
             <div className="bg-transparent bg-opacity-50 p-8 rounded text-center">
-                <p className="text-base text-gray-500 mb-6 font-medium">Plan your perfect trip with <b className="text-[#e91e63] underline">TripWiz</b> - your ultimate travel companion.</p>
-                <button className="px-8 py-2 bg-gray-800 text-white font-semibold text-sm rounded hover:bg-[#e91e63] transition duration-300">Explore Hotels</button>
+                <p className="text-base text-gray-500 mb-6 font-medium">Plan your perfect trip with <b className="text-[#e91e63] underline underline-offset-4">TripWiz</b> - your ultimate travel companion.</p>
+                <button className="px-8 py-2 bg-[#1a2b48] text-white font-semibold text-sm rounded hover:bg-[#e91e63] transition duration-300">Explore Hotels</button>
             </div>
         </div>
     );
