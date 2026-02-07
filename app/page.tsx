@@ -1,5 +1,6 @@
 import { Appbar } from "@/components/ui/Appbar";
 import { Hero } from "@/components/ui/Hero";
+import { PoweredBy } from "@/components/ui/PoweredBy";
 
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
     <div className="min-h-screen overflow-x-hidden">
      <Appbar />
      <Hero/>
+     <PoweredBy/>
     </div>
   );
 }

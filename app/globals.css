@@ -73,9 +73,9 @@ body {
     --panel-right-width: 500px;
     --sidebar-width: 3rem;
     --bg-start: #fdf6f5; /* Very soft warm blush */
-      --bg-end: #f0f4ff;   /* Very soft cool blue */
-            --dot-color: rgba(233, 30, 99, 0.15); /* Pinkish dots to match brand */
-            --accent-pink: #e91e63;
+    --bg-end: #f0f4ff;   /* Very soft cool blue */
+    --dot-color: rgba(233, 30, 99, 0.15); /* Pinkish dots to match brand */
+    --accent-pink: #e91e63;
 }
 
 .dark{
@@ -121,10 +121,11 @@ body {
             z-index: 0;
       }
 .glass {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(14px) saturate(180%);
-            -webkit-backdrop-filter: blur(12px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+             background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(20px) saturate(160%);
+            -webkit-backdrop-filter: blur(20px) saturate(160%);
+            /* border: 1px solid rgb(255, 255, 255);  */
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
         }
 .mono {
             font-family: 'JetBrains Mono', monospace;
