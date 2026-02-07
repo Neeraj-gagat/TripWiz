@@ -1,14 +1,36 @@
+"use client"
+import React, { useState, useEffect } from 'react';
 
+export const Appbar: React.FC = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
 
-export const Appbar = () => {
-    return (
-        <div className="w-full h-18 bg-transparent backdrop-blur-[0.2] text-black flex items-center justify-between px-20 ">
-            <img src="TripWiz.png" className="h-14" alt="logo" />
-            <div className="space-x-4 text-sm font-[500] text-gray-800">
-                <button className="hover:text-[#E31B54] transition duration-300 px-3 py-1 rounded">Home</button>
-                <button className="hover:text-[#E31B54] transition duration-300 px-3 py-1 rounded">About</button>
-                <button className="hover:text-[#E31B54] transition duration-300 px-3 py-1 rounded">Contact</button>
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${isScrolled ? 'py-2 px-4' : 'py-6 px-4'}`}>
+      <div className={`flex justify-between items-center max-w-6xl mx-auto rounded-full px-6 py-2 transition-all duration-500 ${isScrolled ? 'glass shadow-2xl shadow-black/5 border-white/40 backdrop-blur-[8px]' : 'bg-transparent'}`}>
+        <div className="flex justify-center items-center gap-2.5">
+                <div className="p-2 bg-gradient-to-br from-[#e91e63] to-[#ff4081] rounded-2xl">
+                <img src="TripWiz-w.png" className="h-8" alt="logo" />
             </div>
-        </div>
-    );
-}
+            <div className="flex justify-center items-center text-xl">
+                <p className=" bg-[#e91e63] bg-clip-text text-transparent font-bold">Trip</p>
+                <p className="text-black font-bold">Wiz</p>
+            </div>
+            </div>           
+            <div className="space-x-4 text-sm font-[500] text-gray-800 flex items-center">
+                <button className="hidden sm:block text-slate-600 font-bold text-sm px-4 py-2 hover:text-[#e91e63] transition-colors">Login</button>
+            <button className="bg-[#1a2b48] text-white px-5 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-slate-200 hover:bg-black hover:-translate-y-0.5 transition-all">
+              Join Free
+            </button>
+            </div>
+      </div>
+    </nav>
+  );
+};
