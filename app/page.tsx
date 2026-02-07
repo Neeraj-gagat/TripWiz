@@ -4,6 +4,7 @@ import Footer from "@/components/ui/Footer";
 import { Hero } from "@/components/ui/Hero";
 import { PoweredBy } from "@/components/ui/PoweredBy";
 import { PreFooter } from "@/components/ui/PreFooter";
+import { Preview } from "@/components/ui/Preview";
 
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
      <Hero/>
      <PoweredBy/>
      <Features/>
+     <Preview/>
      <PreFooter/>
      <Footer/>
     </div>

@@ -112,7 +112,7 @@ export const MessageThreadFull = React.forwardRef<
         {/* Message input */}
         <div className="px-4 pb-4">
           <MessageInput>
-            <MessageInputTextarea placeholder="Type your message or paste images..." />
+            <MessageInputTextarea placeholder="Type your message or paste images...." />
             <MessageInputToolbar>
               <MessageInputFileButton />
               <MessageInputMcpPromptButton />

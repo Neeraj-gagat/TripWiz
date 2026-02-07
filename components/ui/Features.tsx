@@ -30,7 +30,7 @@ const features = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>
     ),
-    accent: "bg-indigo-500"
+    accent: "bg-blue-500"
   }
 ];
 
