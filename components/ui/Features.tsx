@@ -35,7 +35,7 @@ const features = [
 ];
 
 const FeatureCard: React.FC<{ feature: typeof features[0] }> = ({ feature }) => (
-  <div className="group relative p-9 rounded-[3rem] bg-white border border-slate-100 transition-all duration-500 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)] hover:-translate-y-3 overflow-hidden">
+  <div className="group relative p-9 rounded-[2.5rem] bg-white border border-slate-200/50 transition-all duration-500 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.08)] hover:-translate-y-3 overflow-hidden">
     {/* Animated Background Highlight */}
     <div className={`absolute -right-20 -top-20 w-60 h-40 rounded-full opacity-0 group-hover:opacity-10 transition-opacity duration-700 blur-3xl ${feature.accent}`}></div>
     
@@ -71,7 +71,7 @@ export const Features: React.FC = () => {
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-pink-100/20 rounded-full blur-[120px] pointer-events-none translate-x-1/2 -translate-y-1/2"></div>
       
       <div className="max-w-[70rem] mx-auto px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-24 gap-8">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-18 gap-8">
           <div className="max-w-2xl">
             <span className="inline-flex items-center gap-2 py-1.5 px-4 bg-pink-50 text-[#e91e63] rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-6 border border-pink-100/50 shadow-sm">
                <span className="w-1.5 h-1.5 rounded-full bg-[#e91e63] animate-pulse"></span>
