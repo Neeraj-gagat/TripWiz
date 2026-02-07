@@ -1,3 +1,4 @@
+"use client"
 import { MessageThreadFull } from "../tambo/message-thread-full";
 
 export const Hero = () => {
@@ -18,7 +19,7 @@ export const Hero = () => {
             <div className="rounded-2xl overflow-hidden bg-zinc-50 border border-zinc-200 pt-2">
                <MessageThreadFull className="bg-zinc-50 -mt-2 rounded-xl" />
             </div>
-            <div className="bg-transparent bg-opacity-50 p-8 rounded text-center">
+            <div className="bg-transparent bg-opacity-50 p-6 rounded text-center">
                 <p className="text-base text-gray-500 mb-6 font-medium">Plan your perfect trip with <b className="text-[#e91e63] underline underline-offset-4 italic">TripWiz</b> - your ultimate travel companion.</p>
                 <button className="px-8 py-2 bg-[#1a2b48] text-white font-semibold text-sm rounded hover:bg-[#e91e63] transition duration-300">Explore Hotels</button>
             </div>
@@ -27,10 +28,10 @@ export const Hero = () => {
           <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.3em]">Powered by</span>
           <div className="w-px h-5 bg-slate-300/50"></div>
           <div className="flex items-center gap-2.5">
-             <div className="w-7 h-7 bg-indigo-600 rounded-lg flex items-center justify-center font-bold text-white shadow-lg shadow-indigo-200">
-                <span className="text-[10px]">T</span>
-             </div>
-             <span className="text-[11px] font-black text-slate-900 tracking-tight">TAMBO SDK</span>
+             <a href="https://tambo.co" className="w-7 h-7 bg-tranasparent rounded-lg flex items-center justify-center font-bold text-white shadow-sm shadow-[#81FEC4]">
+                <img src="https://avatars.githubusercontent.com/u/187570293?s=200&v=4" alt="logo" className="rounded-3xl"/>
+             </a>
+             <a href="https://tambo.co" className="text-[11px] font-black text-slate-900 tracking-tight hover:underline-offset-4  hover:underline decoration-[#81FEC4] hover:decoration-[#81FEC4] transition duration-300">TAMBO SDK</a>
           </div>
       </div>
         </div>

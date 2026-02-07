@@ -1,4 +1,5 @@
 import { Appbar } from "@/components/ui/Appbar";
+import Footer from "@/components/ui/Footer";
 import { Hero } from "@/components/ui/Hero";
 import { PoweredBy } from "@/components/ui/PoweredBy";
 
@@ -9,6 +10,7 @@ export default function Home() {
      <Appbar />
      <Hero/>
      <PoweredBy/>
+     <Footer/>
     </div>
   );
 }
