@@ -4,7 +4,7 @@ import { Hero } from "@/components/ui/Hero";
 
 export default function Home() {
   return (
-    <div className="bg-white min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
      <Appbar />
      <Hero/>
     </div>

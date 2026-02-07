@@ -3,8 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { TamboProvider } from "@tambo-ai/react";
 import { components } from "@/lib/tambo";
-import { MessageThreadPanel } from "@/components/tambo/message-thread-panel";
-import { MessageThreadFull } from "@/components/tambo/message-thread-full";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

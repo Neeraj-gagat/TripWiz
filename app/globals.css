@@ -1,4 +1,7 @@
 
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
 
 @theme inline{
   --color-background: var(--background);
@@ -29,34 +32,14 @@
   --color-muted-backdrop: var(--muted-backdrop)
 }
 
-@import "tailwindcss";
-
-@custom-variant dark (&:is(.dark *));
-
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-} */
+             font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
+            background-attachment: fixed;
+            color: #1e293b;
+            margin: 0;
+            overflow-x: hidden;
+        }
 
 :root{
     --background: oklch(1 0 0);
@@ -88,7 +71,11 @@ body {
     --radius: 0.5rem;
     --panel-left-width: 500px;
     --panel-right-width: 500px;
-    --sidebar-width: 3rem
+    --sidebar-width: 3rem;
+    --bg-start: #fdf6f5; /* Very soft warm blush */
+      --bg-end: #f0f4ff;   /* Very soft cool blue */
+            --dot-color: rgba(233, 30, 99, 0.15); /* Pinkish dots to match brand */
+            --accent-pink: #e91e63;
 }
 
 .dark{
@@ -123,3 +110,38 @@ body {
     --panel-right-width: 500px;
     --sidebar-width: 3rem
 }
+.bg-dots {
+        position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, var(--dot-color) 1.5px, transparent 1.5px);
+            background-size: 36px 36px;
+            mask-image: radial-gradient(circle at center, black 40%, transparent 95%);
+            -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 95%);
+            pointer-events: none;
+            z-index: 0;
+      }
+.glass {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(14px) saturate(180%);
+            -webkit-backdrop-filter: blur(12px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+.mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+@keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+.animate-blob {
+    animation: float 20s ease-in-out infinite;
+}
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+.animation-delay-4000 {
+    animation-delay: 4s;
+}
+
