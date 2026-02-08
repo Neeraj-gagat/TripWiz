@@ -1,4 +1,3 @@
-"use client"
 import { MessageThreadFull } from "../tambo/message-thread-full";
 
 export const Hero = () => {
