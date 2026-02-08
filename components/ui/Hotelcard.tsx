@@ -89,7 +89,7 @@ export const HotelCard: React.FC<{ hotel: HotelCardProps }> = ({ hotel }) => {
         <img
           src={hotel.imageURL}
           alt={hotel.hotelName}
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+          className="h-60 w-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
 
         {/* Review badge */}
@@ -108,7 +108,7 @@ export const HotelCard: React.FC<{ hotel: HotelCardProps }> = ({ hotel }) => {
         {/* Header */}
         <div className="mb-4 flex items-start justify-between gap-4">
           <div>
-            <h3 className="text-xl font-black tracking-tight text-slate-900 group-hover:text-indigo-600 transition-colors">
+            <h3 className="text-xl font-black tracking-tight text-[#1a2b48] group-hover:text-indigo-600 transition-colors">
               {hotel.hotelName}
             </h3>
 

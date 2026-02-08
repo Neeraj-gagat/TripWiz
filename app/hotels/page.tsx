@@ -40,7 +40,7 @@ export default function HotelsPage() {
             </div>
             <div className="px-6 py-3 bg-white rounded-2xl shadow-sm border border-slate-100">
               <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Guests</div>
-              <div className="text-[10px] font-bold text-[#1a2b48]">2 Adults, 2 Kids</div>
+              <div className="text-[12px] font-bold text-[#1a2b48]">2 Adults, 2 Kids</div>
             </div>
             <button className="p-4 bg-white text-slate-800 rounded-2xl hover:bg-[#e91e63] hover:text-white transition-all shadow-sm group">
               <svg className="w-5 h-5 group-hover:rotate-180 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
@@ -58,7 +58,7 @@ export default function HotelsPage() {
             ))}
           </div>
           <div className="flex items-center gap-4 text-slate-400 font-bold text-xs uppercase tracking-widest">
-            <span>Showing 4 Results</span>
+            <span>Showing {hotels.length} Results</span>
             <div className="w-px h-4 bg-slate-300"></div>
             <button className="flex items-center gap-2 hover:text-[#1a2b48] transition-colors">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/></svg>
