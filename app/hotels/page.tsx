@@ -1,28 +1,9 @@
 "use client";
-import { useMemo } from "react";
-import { useTamboThread } from "@tambo-ai/react";
 import { HotelCard } from "@/components/ui/Hotelcard";
 import { useHotelStore } from "@/lib/store/useHotelStore";
 
-type Hotel = {
-  hotelId: number;
-  hotelName: string;
-  starRating: number;
-  reviewScore: number;
-  reviewCount: number;
-  currency: string;
-  dailyRate: number;
-  crossedOutRate?: number;
-  discountPercentage?: number;  
-  imageURL: string;
-  landingURL: string;
-  includeBreakfast: boolean;
-  freeWifi: boolean;
-};
-
-
 export default function HotelsPage() {
-    const hotels = useHotelStore((s) => s.hotels);
+    const { hotels, searchMeta } = useHotelStore();
 
   if (!hotels.length) {
     return (
@@ -44,10 +25,10 @@ export default function HotelsPage() {
                <span className="w-1.5 h-1.5 rounded-full bg-[#e91e63] animate-pulse"></span>
                AI Optimized View
             </span>
-            <h1 className="text-4xl md:text-5xl font-black text-[#1a2b48] tracking-tighter leading-tight">
-              Best Stays in <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e91e63] to-purple-600">{hotels[0]?.hotelId ?? "Unknown Location"}</span>
+            <h1 className="text-xl md:text-3xl font-black text-[#1a2b48] tracking-tighter leading-tight">
+              Best Stays in <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e91e63] to-purple-600">{searchMeta?.city ?? "Unknown Location"}</span>
             </h1>
-            <p className="text-slate-500 font-medium text-lg mt-4 max-w-xl">
+            <p className="text-slate-500 font-medium text-base mt-4 max-w-xl">
               We&apos;ve synthesized 4,200 data points to find these family-friendly beachfront retreats for your dates.
             </p>
           </div>
@@ -55,11 +36,11 @@ export default function HotelsPage() {
           <div className="flex gap-4 p-2 bg-slate-50/50 rounded-[2rem] border border-slate-200/50 backdrop-blur-sm">
             <div className="px-6 py-3 bg-white rounded-2xl shadow-sm border border-slate-100">
               <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Dates</div>
-              <div className="text-sm font-bold text-[#1a2b48]">Oct 12 - 18</div>
+              <div className="text-sm font-bold text-[#1a2b48]">{searchMeta?.checkInDate} - {searchMeta?.checkOutDate}</div>
             </div>
             <div className="px-6 py-3 bg-white rounded-2xl shadow-sm border border-slate-100">
               <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Guests</div>
-              <div className="text-sm font-bold text-[#1a2b48]">2 Adults, 2 Kids</div>
+              <div className="text-[10px] font-bold text-[#1a2b48]">2 Adults, 2 Kids</div>
             </div>
             <button className="p-4 bg-white text-slate-800 rounded-2xl hover:bg-[#e91e63] hover:text-white transition-all shadow-sm group">
               <svg className="w-5 h-5 group-hover:rotate-180 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>

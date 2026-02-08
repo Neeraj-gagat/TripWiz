@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-type Hotel = {
+export type Hotel = {
   hotelId: number;
   hotelName: string;
   starRating: number;
@@ -9,19 +9,42 @@ type Hotel = {
   currency: string;
   dailyRate: number;
   crossedOutRate?: number;
-  discountPercentage?: number;  
+  discountPercentage?: number;
   imageURL: string;
   landingURL: string;
   includeBreakfast: boolean;
   freeWifi: boolean;
 };
 
+type SearchMeta = {
+  city: string;
+    checkInDate: string;
+    checkOutDate: string;
+    adults?: number;
+  children?: number;
+};
+
 type HotelStore = {
   hotels: Hotel[];
-  setHotels: (hotels: Hotel[]) => void;
+  searchMeta: SearchMeta | null;
+
+  setResults: (hotels: Hotel[], meta: SearchMeta) => void;
+  clearResults: () => void;
 };
 
 export const useHotelStore = create<HotelStore>((set) => ({
   hotels: [],
-  setHotels: (hotels) => set({ hotels }),
+  searchMeta: null,
+
+  setResults: (hotels, meta) =>
+    set({
+      hotels,
+      searchMeta: meta,
+    }),
+
+  clearResults: () =>
+    set({
+      hotels: [],
+      searchMeta: null,
+    }),
 }));

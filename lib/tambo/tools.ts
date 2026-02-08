@@ -116,7 +116,21 @@ if (!resolvedCityId) {
       throw new Error("Hotel search failed");
     }
 
-    return await response.json();
+    const data = await response.json();
+    return {
+            meta: {
+              city,
+              normalizedCity,
+              cityId: resolvedCityId,
+              checkInDate,
+              checkOutDate,
+              adults,
+              children,
+              minPrice,
+              maxPrice,
+            },
+            results: data.results,
+            };
   },
 
   inputSchema: HotelSearchInputSchema,
