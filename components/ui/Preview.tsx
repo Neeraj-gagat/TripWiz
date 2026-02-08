@@ -2,7 +2,7 @@
 
 export const Preview = () => {
   return (
-    <section id="about" className="py-24 bg-white">
+    <section id="preview" className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-1">
           <div className="flex-1 text-left">

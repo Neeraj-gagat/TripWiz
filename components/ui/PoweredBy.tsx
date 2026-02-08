@@ -6,7 +6,7 @@ export const PoweredBy = () => {
             <p className="text-center text-[#1a2b48]/80 text-[10px] font-black uppercase tracking-[0.4em] mb-14">
               Our Data Sources & Partners
             </p>
-            <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-20 grayscale hover:opacity-50 transition-opacity duration-700">
+            <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-40 grayscale hover:opacity-70 transition-opacity duration-700">
               <span className="text-[22px] font-black text-slate-900 tracking-tighter italic">EXPEDIA</span>
               <span className="text-[22px] font-black text-slate-900 tracking-tighter">airbnb</span>
               <span className="text-[22px] font-black text-slate-900 tracking-tighter">BOOKING</span>

@@ -44,3 +44,9 @@ export const components: TamboComponent[] = [];
 
 // Import your custom components that utilize the Tambo SDK
 // import { CustomChart } from "../components/tambo/custom-chart";
+
+import { searchHotelsTool } from "./tambo/tools";
+
+export const tamboTools = [
+  searchHotelsTool,
+];
