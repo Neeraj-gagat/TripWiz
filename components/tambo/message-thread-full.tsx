@@ -69,20 +69,20 @@ export const MessageThreadFull = React.forwardRef<
   const defaultSuggestions: Suggestion[] = [
     {
       id: "suggestion-1",
-      title: "Get started",
-      detailedSuggestion: "What can you help me with?",
+      title: "Find Hotels in Japan",
+      detailedSuggestion: "Find me hotels in Tokyo for next week under 100 dollars",
       messageId: "welcome-query",
     },
     {
       id: "suggestion-2",
-      title: "Learn more",
-      detailedSuggestion: "Tell me about your capabilities.",
+      title: "Find Hotels in Korea",
+      detailedSuggestion: "Find me hotels in Seoul for next week under 100 dollars",
       messageId: "capabilities-query",
     },
     {
       id: "suggestion-3",
-      title: "Examples",
-      detailedSuggestion: "Show me some example queries I can try.",
+      title: "Find Hotels in New York",
+      detailedSuggestion: "Find me hotels in New York for next week under 100 dollars",
       messageId: "examples-query",
     },
   ];

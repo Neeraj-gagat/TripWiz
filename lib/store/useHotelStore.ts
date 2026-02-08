@@ -16,7 +16,7 @@ export type Hotel = {
   freeWifi: boolean;
 };
 
-type SearchMeta = {
+export  type SearchMeta = {
   city: string;
     checkInDate: string;
     checkOutDate: string;
@@ -28,6 +28,9 @@ type HotelStore = {
   hotels: Hotel[];
   searchMeta: SearchMeta | null;
 
+    hasRedirected: boolean;
+  setHasRedirected: (value: boolean) => void;
+
   setResults: (hotels: Hotel[], meta: SearchMeta) => void;
   clearResults: () => void;
 };
@@ -36,15 +39,21 @@ export const useHotelStore = create<HotelStore>((set) => ({
   hotels: [],
   searchMeta: null,
 
+   hasRedirected: false,
+  setHasRedirected: (value) =>
+    set({ hasRedirected: value }),
+
   setResults: (hotels, meta) =>
     set({
       hotels,
       searchMeta: meta,
+      hasRedirected: false,
     }),
 
   clearResults: () =>
     set({
       hotels: [],
       searchMeta: null,
+      hasRedirected: false,
     }),
 }));

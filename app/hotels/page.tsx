@@ -1,7 +1,9 @@
 "use client";
 import { Appbar } from "@/components/ui/Appbar";
-import { HotelCard } from "@/components/ui/Hotelcard";
-import { useHotelStore } from "@/lib/store/useHotelStore";
+import Footer from "@/components/ui/Footer";
+import { HotelCard, HotelCardProps } from "@/components/ui/Hotelcard";
+import { PreFooter } from "@/components/ui/PreFooter";
+import { SearchMeta, useHotelStore } from "@/lib/store/useHotelStore";
 
 export default function HotelsPage() {
     const { hotels, searchMeta } = useHotelStore();
@@ -15,8 +17,19 @@ export default function HotelsPage() {
   }
 
   return (
-    <div className="relative pt-28 pb-24 min-h-screen">
+    <div>
       <Appbar/>
+      <Coponent hotels={hotels} searchMeta={searchMeta} />
+      <PreFooter />
+      <Footer />
+    </div>
+  );
+};
+
+
+const Coponent = ({hotels,searchMeta }: {hotels: HotelCardProps[], searchMeta: SearchMeta | null}) => {
+  return ( 
+    <div className="relative pt-28 pb-24 min-h-screen">
       <div className="bg-dots opacity-90"></div>
       
       <div className="max-w-6xl mx-auto px-10 relative z-10">
@@ -98,5 +111,5 @@ export default function HotelsPage() {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

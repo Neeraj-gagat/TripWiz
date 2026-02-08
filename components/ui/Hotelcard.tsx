@@ -70,7 +70,7 @@
 "use client";
 import React from "react";
 
-type HotelCardProps = {
+export type HotelCardProps = {
   hotelId: number;
   hotelName: string;
   starRating: number;
