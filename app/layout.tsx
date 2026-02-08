@@ -42,7 +42,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${plusJakartaSans.variable} ${geistMono.variable} antialiased`}
       >
-        <TamboProvider  apiKey={process.env.NEXT_PUBLIC_TAMBO_API_KEY ?? ""}
+        <TamboProvider  apiKey={process.env.TAMBO_API_KEY ?? ""}
         components={components}
         tools={tamboTools}
         >
