@@ -1,4 +1,5 @@
 "use client";
+import { Appbar } from "@/components/ui/Appbar";
 import { HotelCard } from "@/components/ui/Hotelcard";
 import { useHotelStore } from "@/lib/store/useHotelStore";
 
@@ -14,10 +15,11 @@ export default function HotelsPage() {
   }
 
   return (
-    <div className="relative pt-32 pb-24 min-h-screen">
-      <div className="dot-pattern opacity-40"></div>
+    <div className="relative pt-28 pb-24 min-h-screen">
+      <Appbar/>
+      <div className="bg-dots opacity-90"></div>
       
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="max-w-6xl mx-auto px-10 relative z-10">
         {/* Generative UI Summary Card */}
         <div className="glass rounded-[3rem] p-8 md:p-12 mb-16 flex flex-col md:flex-row items-center justify-between gap-10 border-white/60">
           <div className="flex-1">
@@ -29,7 +31,7 @@ export default function HotelsPage() {
               Best Stays in <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e91e63] to-purple-600">{searchMeta?.city ?? "Unknown Location"}</span>
             </h1>
             <p className="text-slate-500 font-medium text-base mt-4 max-w-xl">
-              We&apos;ve synthesized 4,200 data points to find these family-friendly beachfront retreats for your dates.
+              We&apos;ve synthesized 4,200 data points to find these family-friendly hotels retreats for your dates.
             </p>
           </div>
 
@@ -50,9 +52,9 @@ export default function HotelsPage() {
 
         {/* Filters Top Bar */}
         <div className="flex flex-wrap items-center justify-between gap-6 mb-12">
-          <div className="flex gap-3">
-            {['Lowest Price', 'Top Rated', 'Distance'].map(filter => (
-              <button key={filter} className="px-6 py-3 bg-white/50 backdrop-blur-md rounded-full text-xs font-bold text-slate-600 border border-slate-200 hover:border-[#e91e63] hover:text-[#e91e63] transition-all">
+          <div className="flex gap-2">
+            {['Lowest Price', 'Top Rated', 'Distance'].map((filter, i) => (
+              <button key={filter} className={`px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${i === 1 ? 'bg-[#1a2b48] text-white shadow-lg' : 'bg-white/50 text-slate-500 border border-slate-200 hover:border-[#e91e63] hover:text-[#e91e63]'}`}>
                 {filter}
               </button>
             ))}
@@ -68,7 +70,7 @@ export default function HotelsPage() {
         </div>
 
         {/* Hotels Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {hotels.map(hotel => (
             <HotelCard key={hotel.hotelId} hotel={hotel} />
           ))}
