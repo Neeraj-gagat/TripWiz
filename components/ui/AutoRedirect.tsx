@@ -13,9 +13,10 @@
 
 //     const hasHotelResults = thread.messages.some(
 //       (m) =>
-//         m.role === "assistant" &&
-//         m.content?.[0]?.type === "text" &&
-//         m.content[0].text?.includes('"results"')
+//         m.role === "tool" &&
+//         typeof m.content === "object" &&
+//         Array.isArray(m.content) &&
+//         m.content[0]?.text?.includes('"results"')
 //     );
 
 //     if (hasHotelResults) {
@@ -31,27 +32,46 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useTamboThread } from "@tambo-ai/react";
+import { useHotelStore } from "@/lib/store/useHotelStore";
 
 export function AutoRedirectToHotels() {
   const { thread } = useTamboThread();
   const router = useRouter();
+  const setHotels = useHotelStore((s) => s.setHotels);
 
   useEffect(() => {
     if (!thread?.messages?.length) return;
 
-    const hasHotelResults = thread.messages.some((m) => {
-      if (m.role !== "tool") return false;
+    const toolMessage = thread.messages.find(
+      (m) =>
+        m.role === "tool" &&
+        typeof m.content === "object" &&
+        Array.isArray(m.content) &&
+        m.content[0]?.text?.includes('"results"')
+    );
 
-      // Tool output is stored directly on content
-      const content = m.content as any;
-      return Array.isArray(content?.results) && content.results.length > 0;
-    });
+    if (!toolMessage) return;
 
-    if (hasHotelResults) {
-      router.push("/hotels");
+    try {
+      const contentText = Array.isArray(toolMessage.content)
+        ? toolMessage.content[0]?.text
+        : toolMessage.content;
+
+      if (!contentText) return;
+
+      const parsed = JSON.parse(contentText);
+
+      if (Array.isArray(parsed.results)) {
+        // ✅ THIS WAS MISSING
+        setHotels(parsed.results);
+
+        // ✅ Redirect still works
+        router.push("/hotels");
+      }
+    } catch (e) {
+      console.error("Failed to parse hotel results", e);
     }
-  }, [thread, router]);
+  }, [thread, router, setHotels]);
 
   return null;
 }
-

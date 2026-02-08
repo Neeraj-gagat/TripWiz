@@ -2,6 +2,7 @@
 import { useMemo } from "react";
 import { useTamboThread } from "@tambo-ai/react";
 import { HotelCard } from "@/components/ui/Hotelcard";
+import { useHotelStore } from "@/lib/store/useHotelStore";
 
 type Hotel = {
   hotelId: number;
@@ -21,26 +22,7 @@ type Hotel = {
 
 
 export default function HotelsPage() {
-    const { thread } = useTamboThread();
-
-
-  const hotels: Hotel[] = useMemo(() => {
-     if (!thread?.messages?.length) return [];
-
-  const toolMessage = [...thread.messages]
-    .reverse()
-    .find((m) => m.role === "tool");
-
-  const content = toolMessage?.content as string | undefined;
-  if (!content) return [];
-  try {
-    const parsed = JSON.parse(content);
-    return parsed?.results ?? [];
-  } catch (err) {
-    console.error("Failed to parse hotel results", err);
-    return [];
-  }
-  }, [thread]);
+    const hotels = useHotelStore((s) => s.hotels);
 
   if (!hotels.length) {
     return (
@@ -54,7 +36,7 @@ export default function HotelsPage() {
     <div className="relative pt-32 pb-24 min-h-screen">
       <div className="dot-pattern opacity-40"></div>
       
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         {/* Generative UI Summary Card */}
         <div className="glass rounded-[3rem] p-8 md:p-12 mb-16 flex flex-col md:flex-row items-center justify-between gap-10 border-white/60">
           <div className="flex-1">
@@ -63,7 +45,7 @@ export default function HotelsPage() {
                AI Optimized View
             </span>
             <h1 className="text-4xl md:text-5xl font-black text-[#1a2b48] tracking-tighter leading-tight">
-              Best Stays in <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e91e63] to-purple-600">Bali</span>
+              Best Stays in <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#e91e63] to-purple-600">{hotels[0]?.hotelId ?? "Unknown Location"}</span>
             </h1>
             <p className="text-slate-500 font-medium text-lg mt-4 max-w-xl">
               We&apos;ve synthesized 4,200 data points to find these family-friendly beachfront retreats for your dates.
