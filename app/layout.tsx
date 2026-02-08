@@ -4,6 +4,7 @@ import "./globals.css";
 import { TamboProvider } from "@tambo-ai/react";
 import { components, tamboTools } from "@/lib/tambo";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import { AutoRedirectToHotels } from "@/components/ui/AutoRedirect";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,6 +46,7 @@ export default function RootLayout({
         components={components}
         tools={tamboTools}
         >
+          <AutoRedirectToHotels />
           {children}
           {/* <MessageThreadFull /> */}
           {/* <MessageThreadPanel /> */}
