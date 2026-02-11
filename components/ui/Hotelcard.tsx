@@ -81,12 +81,6 @@ export const HotelCard: React.FC<{ hotel: HotelCardProps }> = ({ hotel }) => {
               Free Wi-Fi
             </span>
           )}
-
-          {/* {hotel.discountPercentage && (
-            <span className="px-2.5 py-0.5 bg-pink-50 text-pink-600 rounded-lg text-[9px] font-black uppercase tracking-wider border border-pink-100">
-              {hotel.discountPercentage}% OFF
-            </span>
-          )} */}
         </div>
 
         {/* CTA */}
